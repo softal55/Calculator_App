@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,28 +11,44 @@ namespace Calculator_App
     {
         public static void Subtraction()
         {
-            Console.WriteLine("How much number you will add in the subtraction? ");
-            int totalOfNum = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the first number :");
+            int firstNum = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second number: ");
+            int secondNum = int.Parse(Console.ReadLine());
 
-            List<int> numbers = new List<int>();
-
-            for (int i = 0; i < totalOfNum; i++)
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("1.Get the result");
+            Console.WriteLine("2.Add another number");
+            Console.WriteLine("3.Exit the application");
+            int num = int.Parse(Console.ReadLine());
+            while (num != 3)
             {
-                Console.WriteLine("Enter a number: ");
-                int x = int.Parse(Console.ReadLine());
+                if (num == 1)
+                {
+                    int sub = firstNum - secondNum;
+                    Console.WriteLine("The output is: {0}", sub);
+                    break;
+                }
+                if (num == 2)
+                {
+                    Console.WriteLine("How many number you will add in the subtraction? ");
+                    int totalOfNum = int.Parse(Console.ReadLine());
+                    List<int> numbers = new List<int>();
 
-                numbers.Add(x);
+                    for (int i = 0; i < totalOfNum; i++)
+                    {
+                        Console.WriteLine($"Enter the number {i + 3}: ");
+                        int x = int.Parse(Console.ReadLine());
+                        numbers.Add(x);
+                    }
+                    int sum = numbers.Sum();
+                    int output = firstNum - secondNum - sum;
+                    Console.WriteLine("The Output is:{0}", output);
+                    break;
+                }
             }
-
-            /* the numbers that user enter are in the list, 
-             * in the AdditionMethod.cs i used method who exist in System.Collections.Generic 
-             * the "sum" method.
-             * So here i don't know what i use to get the result ?
-             * and i'm looking to do the same consist for all the calculate method (the same stracture )
-             */
-
-
-
+            Console.WriteLine("Close the application with any key!");
+            Console.ReadKey();
         }
     }
 }

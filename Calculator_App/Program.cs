@@ -21,15 +21,16 @@
             }
             if (theEnteredNum == 2)
             {
-
+                SubtractionMethod.Subtraction();
             }
             if(theEnteredNum == 3)
             {
-
+                MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
+                miltiplicationMethod.Miltiplication();
             }
             if(theEnteredNum == 4)
             {
-
+                DivisionMethod.Division();
             }
         }
     }
