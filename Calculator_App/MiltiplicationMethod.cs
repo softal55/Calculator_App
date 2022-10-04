@@ -21,12 +21,13 @@ namespace Calculator_App
 
            Console.WriteLine("1.Miltiplication with last result");
            Console.WriteLine("2.New Miltiplication calculation");
-           Console.WriteLine("3.Exit the application");
+           Console.WriteLine("3.Change the calculation type");
+            Console.WriteLine("4.Exit the application");
 
-            int theEntredNum = int.Parse(Console.ReadLine());
-            while (theEntredNum != 3)
+            int theEnteredNum = int.Parse(Console.ReadLine());
+            while (theEnteredNum != 4)
             {
-                if (theEntredNum == 1)
+                if (theEnteredNum == 1)
                 {
                     Console.WriteLine($"The last result: {result}");
 
@@ -34,10 +35,12 @@ namespace Calculator_App
                     int secondNumber = int.Parse(Console.ReadLine());
 
                     int rslt = result * secondNumber;
-                   Console.WriteLine($"The result is: {rslt}");
+
+                    Console.WriteLine("---------------------------------- \n");
+                    Console.WriteLine($"The result is: {rslt}");
                     break;
                 }
-                if(theEntredNum == 2)
+                if(theEnteredNum == 2)
                 {
                     Console.WriteLine("Enter the first number :");
                     firstNum = int.Parse(Console.ReadLine());
@@ -46,15 +49,45 @@ namespace Calculator_App
                      secondNum = int.Parse(Console.ReadLine());
 
                      result = firstNum * secondNum;
+
+                    Console.WriteLine("---------------------------------- \n");
                     Console.WriteLine($"The output is: {result}");
 
                   
                 }
+                if(theEnteredNum == 3)
+                {
+                    int  EnteredNum = CalculationType.Types();
+
+                    Console.WriteLine("----------------------------------");
+
+                    if (EnteredNum == 1)
+                    {
+                        AdditionMethod.Addition();
+                    }
+                    if (EnteredNum == 2)
+                    {
+                        SubtractionMethod.Subtraction();
+                    }
+                    if (EnteredNum == 3)
+                    {
+                        MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
+                        miltiplicationMethod.Miltiplication();
+                    }
+                    if (EnteredNum == 4)
+                    {
+                        DivisionMethod.Division();
+                    }
+                    break;
+                }
+
+                Console.WriteLine("---------------------------------- \n");
                 Console.WriteLine("1.Miltiplication with last result");
                 Console.WriteLine("2.New Miltiplication calculation");
-                Console.WriteLine("3.Exit the application");
+                Console.WriteLine("3.Change the calculation type");
+                Console.WriteLine("4.Exit the application");
 
-                theEntredNum = int.Parse(Console.ReadLine());
+                theEnteredNum = int.Parse(Console.ReadLine());
             }
            Console.WriteLine("Close the application with any key!");
             Console.ReadKey();

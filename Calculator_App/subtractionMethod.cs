@@ -19,9 +19,11 @@ namespace Calculator_App
             Console.WriteLine("----------------------------------");
             Console.WriteLine("1.Get the result");
             Console.WriteLine("2.Add another number");
-            Console.WriteLine("3.Exit the application");
+            Console.WriteLine("3.Change the calculation type");
+            Console.WriteLine("4.Exit the application");
+
             int num = int.Parse(Console.ReadLine());
-            while (num != 3)
+            while (num != 4)
             {
                 if (num == 1)
                 {
@@ -46,6 +48,32 @@ namespace Calculator_App
                     Console.WriteLine("The Output is:{0}", output);
                     break;
                 }
+                if (num == 3)
+                {
+                    int EnteredNum = CalculationType.Types();
+
+                    Console.WriteLine("----------------------------------");
+
+                    if (EnteredNum == 1)
+                    {
+                        AdditionMethod.Addition();
+                    }
+                    if (EnteredNum == 2)
+                    {
+                        SubtractionMethod.Subtraction();
+                    }
+                    if (EnteredNum == 3)
+                    {
+                        MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
+                        miltiplicationMethod.Miltiplication();
+                    }
+                    if (EnteredNum == 4)
+                    {
+                        DivisionMethod.Division();
+                    }
+                    break;
+                }
+
             }
             Console.WriteLine("Close the application with any key!");
             Console.ReadKey();

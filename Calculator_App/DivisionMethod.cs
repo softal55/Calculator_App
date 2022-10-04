@@ -15,24 +15,54 @@ namespace Calculator_App
             int result = firstNum / secondNum;
             WriteLine($"The output is: {result}");
 
-            WriteLine("Enter any number to do a new division");
-            WriteLine("2.close the application");
+            WriteLine("1.New Division");
+            WriteLine("2.Change the calculation type");
+            WriteLine("3.close the application");
             int theEntredNum = int.Parse(ReadLine());
-            while (theEntredNum != 2)
+
+            while (theEntredNum != 3)
             {
-                
+                if (theEntredNum == 1)
+                {
                     WriteLine("Enter the first number :");
                     firstNum = int.Parse(ReadLine());
 
                     WriteLine("Enter the second number:");
-                     secondNum = int.Parse(ReadLine());
+                    secondNum = int.Parse(ReadLine());
 
                     result = firstNum / secondNum;
                     WriteLine($"The output is: {result}");
+                }
+                if (theEntredNum == 2)
+                {
+                    int EnteredNum = CalculationType.Types();
 
-                WriteLine("Enter any number to do a new division");
-                WriteLine("2.close the application");
+                    Console.WriteLine("----------------------------------");
 
+                    if (EnteredNum == 1)
+                    {
+                        AdditionMethod.Addition();
+                    }
+                    if (EnteredNum == 2)
+                    {
+                        SubtractionMethod.Subtraction();
+                    }
+                    if (EnteredNum == 3)
+                    {
+                        MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
+                        miltiplicationMethod.Miltiplication();
+                    }
+                    if (EnteredNum == 4)
+                    {
+                        DivisionMethod.Division();
+                    }
+                    break;
+                }
+
+                WriteLine("1.New division");
+               WriteLine("2.Change the calculation type");
+                WriteLine("3.close the application");
+                theEntredNum = int.Parse(ReadLine());
             }
             WriteLine("Close the application with any key!");
             ReadKey();

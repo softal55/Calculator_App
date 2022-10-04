@@ -19,9 +19,11 @@ namespace Calculator_App
 
             Console.WriteLine("1.Get the result");
             Console.WriteLine("2.Add another number");
-            Console.WriteLine("3.Exit the application");
+            Console.WriteLine("3.Change the calculation type");
+            Console.WriteLine("4.Exit the application");
+
             int theEnteredNum = int.Parse(Console.ReadLine());
-            while (theEnteredNum != 3)
+            while (theEnteredNum != 4)
             {
 
                 List<int> numbers = new List<int>();
@@ -52,6 +54,31 @@ namespace Calculator_App
                     int Output = numbers.Sum();
 
                     Console.WriteLine("The Output is: {0} ", Output);
+                    break;
+                }
+                if (theEnteredNum == 3)
+                {
+                    int EnteredNum = CalculationType.Types();
+
+                    Console.WriteLine("----------------------------------");
+
+                    if (EnteredNum == 1)
+                    {
+                        AdditionMethod.Addition();
+                    }
+                    if (EnteredNum == 2)
+                    {
+                        SubtractionMethod.Subtraction();
+                    }
+                    if (EnteredNum == 3)
+                    {
+                        MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
+                        miltiplicationMethod.Miltiplication();
+                    }
+                    if (EnteredNum == 4)
+                    {
+                        DivisionMethod.Division();
+                    }
                     break;
                 }
 
