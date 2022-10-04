@@ -15,13 +15,12 @@ namespace Calculator_App
             int result = firstNum / secondNum;
             WriteLine($"The output is: {result}");
 
-            WriteLine("1.New division calculation");
+            WriteLine("Enter any number to do a new division");
             WriteLine("2.close the application");
             int theEntredNum = int.Parse(ReadLine());
             while (theEntredNum != 2)
             {
-                if (theEntredNum == 1)
-                {
+                
                     WriteLine("Enter the first number :");
                     firstNum = int.Parse(ReadLine());
 
@@ -30,8 +29,10 @@ namespace Calculator_App
 
                     result = firstNum / secondNum;
                     WriteLine($"The output is: {result}");
-                    break;
-                }
+
+                WriteLine("Enter any number to do a new division");
+                WriteLine("2.close the application");
+
             }
             WriteLine("Close the application with any key!");
             ReadKey();
