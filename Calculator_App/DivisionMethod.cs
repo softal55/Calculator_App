@@ -6,66 +6,82 @@ namespace Calculator_App
     {
         public static void Division()
         {
-            WriteLine("Enter the first number :");
-            int firstNum = int.Parse(ReadLine());
-
-           WriteLine("Enter the second number:");
-            int secondNum = int.Parse(ReadLine());
-            
-            int result = firstNum / secondNum;
-            WriteLine($"The output is: {result}");
-
-            WriteLine("1.New Division");
-            WriteLine("2.Change the calculation type");
-            WriteLine("3.close the application");
-            int theEntredNum = int.Parse(ReadLine());
-
-            while (theEntredNum != 3)
+            try
             {
-                if (theEntredNum == 1)
-                {
-                    WriteLine("Enter the first number :");
-                    firstNum = int.Parse(ReadLine());
+                WriteLine("Enter the first number :");
+                int firstNum = int.Parse(ReadLine());
 
-                    WriteLine("Enter the second number:");
-                    secondNum = int.Parse(ReadLine());
+                WriteLine("Enter the second number:");
+                int secondNum = int.Parse(ReadLine());
 
-                    result = firstNum / secondNum;
-                    WriteLine($"The output is: {result}");
-                }
-                if (theEntredNum == 2)
-                {
-                    int EnteredNum = CalculationType.Types();
+                int result = firstNum / secondNum;
 
-                    Console.WriteLine("----------------------------------");
+                Console.WriteLine("----------------------------------");
+                WriteLine($"The output is: {result}");
+                Console.WriteLine("---------------------------------- \n");
 
-                    if (EnteredNum == 1)
-                    {
-                        AdditionMethod.Addition();
-                    }
-                    if (EnteredNum == 2)
-                    {
-                        SubtractionMethod.Subtraction();
-                    }
-                    if (EnteredNum == 3)
-                    {
-                        MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
-                        miltiplicationMethod.Miltiplication();
-                    }
-                    if (EnteredNum == 4)
-                    {
-                        DivisionMethod.Division();
-                    }
-                    break;
-                }
-
-                WriteLine("1.New division");
-               WriteLine("2.Change the calculation type");
+                WriteLine("1.New Division");
+                WriteLine("2.Change the calculation type");
                 WriteLine("3.close the application");
-                theEntredNum = int.Parse(ReadLine());
+                int theEntredNum = int.Parse(ReadLine());
+
+                while (theEntredNum != 3)
+                {
+
+                    if (theEntredNum == 1)
+                    {
+                        WriteLine("Enter the first number :");
+                        firstNum = int.Parse(ReadLine());
+
+                        WriteLine("Enter the second number:");
+                        secondNum = int.Parse(ReadLine());
+
+                        result = firstNum / secondNum;
+
+                        Console.WriteLine("----------------------------------");
+                        WriteLine($"The output is: {result}");
+                        Console.WriteLine("---------------------------------- \n");
+                    }
+                    if (theEntredNum == 2)
+                    {
+                        CalculationType.Types();
+                    }
+                    if (theEntredNum == 0 || theEntredNum > 3)
+                    {
+                        ForegroundColor = ConsoleColor.Red;
+                        WriteLine("------------------------------------------------------");
+                        WriteLine("Please try again. Enter a number between 1 and 3 :");
+                        WriteLine("------------------------------------------------------ \n");
+                        ResetColor();
+                    }
+                    WriteLine("---------------------------------- \n");
+                    WriteLine("1.New division");
+                    WriteLine("2.Change the calculation type");
+                    WriteLine("3.close the application");
+                    theEntredNum = int.Parse(ReadLine());
+                }
+                WriteLine("Close the application with any key!");
+                ReadKey();
             }
-            WriteLine("Close the application with any key!");
-            ReadKey();
+            catch(FormatException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                WriteLine("------------------------------------------------------");
+                WriteLine("Please try again. The app accept only numbers");
+                WriteLine("------------------------------------------------------\n");
+                ResetColor();
+                Division();
+            }
+            catch(DivideByZeroException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                WriteLine("------------------------------------------------------");
+                WriteLine("Please try again. Can't do divide by 0.");
+                WriteLine("------------------------------------------------------\n");
+                ResetColor();
+                Division();
+            }
+           
         }
     }
 }
