@@ -19,7 +19,9 @@ namespace Calculator_App
                 int secondNum = int.Parse(Console.ReadLine());
 
                 int result = firstNum * secondNum;
+                Console.WriteLine("----------------------------------");
                 Console.WriteLine($"The output is: {result}");
+                Console.WriteLine("---------------------------------- \n");
 
                 Console.WriteLine("1.Miltiplication with last result");
                 Console.WriteLine("2.New Miltiplication calculation");
@@ -42,6 +44,7 @@ namespace Calculator_App
                         Console.WriteLine($"The result is: {rslt}");
                         Console.WriteLine("---------------------------------- \n");
                         CalculationType.Types();
+                        break;
                     }
                     if (theEnteredNum == 2)
                     {
@@ -57,11 +60,12 @@ namespace Calculator_App
                         Console.WriteLine($"The output is: {result}");
                         Console.WriteLine("---------------------------------- \n");
                         CalculationType.Types();
-
+                        break;
                     }
                     if (theEnteredNum == 3)
                     {
                         CalculationType.Types();
+                        break;
                     }
                     if (theEnteredNum == 0 || theEnteredNum > 4)
                     {
@@ -79,8 +83,6 @@ namespace Calculator_App
 
                     theEnteredNum = int.Parse(Console.ReadLine());
                 }
-                Console.WriteLine("Close the application with any key!");
-                Console.ReadKey();
             }
             catch(FormatException)
             {

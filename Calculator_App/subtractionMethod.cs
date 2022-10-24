@@ -35,6 +35,7 @@ namespace Calculator_App
                         Console.WriteLine("The output is: {0}", sub);
                         Console.WriteLine("---------------------------------- \n");
                         CalculationType.Types();
+                        break;
                     }
                     if (num == 2)
                     {
@@ -55,10 +56,12 @@ namespace Calculator_App
                         Console.WriteLine("The Output is:{0}", output);
                         Console.WriteLine("---------------------------------- \n");
                         CalculationType.Types();
+                        break;
                     }
                     if (num == 3)
                     {
                         CalculationType.Types();
+                        break;
                     }
                     while (num == 0 || num > 4)
                     {
@@ -74,8 +77,6 @@ namespace Calculator_App
                         num = int.Parse(Console.ReadLine());
                     }
                 }
-                Console.WriteLine("Close the application with any key!");
-                Console.ReadKey();
             }
             catch (FormatException)
             {

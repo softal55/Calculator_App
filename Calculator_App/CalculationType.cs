@@ -31,6 +31,7 @@ namespace Calculator_App
                     if (theEnteredNum == 2)
                     {
                         SubtractionMethod.Subtraction();
+
                     }
                     if (theEnteredNum == 3)
                     {
@@ -45,6 +46,7 @@ namespace Calculator_App
                     {
                         Console.WriteLine("Close the application with any key!");
                         Console.ReadKey();
+
                     }
                 }
                 while (theEnteredNum == 0 || theEnteredNum > 5)
@@ -56,29 +58,34 @@ namespace Calculator_App
                     if (theEnteredNum == 1)
                     {
                         AdditionMethod.Addition();
+                       
                     }
                     if (theEnteredNum == 2)
                     {
                         SubtractionMethod.Subtraction();
+                       
                     }
                     if (theEnteredNum == 3)
                     {
                         MiltiplicationMethod miltiplicationMethod = new MiltiplicationMethod();
                         miltiplicationMethod.Miltiplication();
+                     
                     }
                     if (theEnteredNum == 4)
                     {
                         DivisionMethod.Division();
+                      
                     }
                     if (theEnteredNum == 5)
                     {
                         Console.WriteLine("Close the application with any key!");
                         Console.ReadKey();
+
                     }
                 }
 
             }
-            catch(FormatException)
+            catch (FormatException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("------------------------------------------------------");

@@ -45,6 +45,7 @@ namespace Calculator_App
                     if (theEntredNum == 2)
                     {
                         CalculationType.Types();
+                        break;
                     }
                     if (theEntredNum == 0 || theEntredNum > 3)
                     {
@@ -60,8 +61,6 @@ namespace Calculator_App
                     WriteLine("3.close the application");
                     theEntredNum = int.Parse(ReadLine());
                 }
-                WriteLine("Close the application with any key!");
-                ReadKey();
             }
             catch(FormatException)
             {
