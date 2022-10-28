@@ -22,7 +22,7 @@ namespace Calculator_App
                 int theEnteredNum = int.Parse(Console.ReadLine());
                 Console.WriteLine("------------------------------------------------------\n");
 
-                if (theEnteredNum != 0 || theEnteredNum < 5)
+                if ( theEnteredNum > 0 || theEnteredNum < 5)
                 {
                     if (theEnteredNum == 1)
                     {
@@ -49,10 +49,11 @@ namespace Calculator_App
 
                     }
                 }
-                while (theEnteredNum == 0 || theEnteredNum > 5)
+                while (theEnteredNum <= 0 || theEnteredNum > 5)
                 {
-                    Console.WriteLine("------------------------------------------------------\n");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Please try again. Enter a number between 1 and 5 :");
+                    Console.ResetColor();
                     theEnteredNum = int.Parse(Console.ReadLine());
 
                     if (theEnteredNum == 1)
